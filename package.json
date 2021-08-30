@@ -4,7 +4,7 @@
   "repository": "git@github.com:DKbyo/react-native-dialogflow-cx.git",
   "author": "Danyel Cabello <danyel.nerv@gmail.com>",
   "license": "APACHE2",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": [
     "dialogflow",
     "dialogflow-cx",
