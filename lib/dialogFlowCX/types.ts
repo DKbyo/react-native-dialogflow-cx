@@ -10,24 +10,31 @@ export interface Text {
 }
 
 export interface Payload {
-  richContent: (ChipElement | ButtonElement | InfoElement | DescriptionElement | ImageElement | ListElement | ListDivider| AccordionElement)[][];
+  richContent: (
+    | ChipElement
+    | ButtonElement
+    | InfoElement
+    | DescriptionElement
+    | ImageElement
+    | ListElement
+    | ListDivider
+    | AccordionElement
+  )[][];
 }
 
 export interface RichContent {
-  type: string
+  type: string;
 }
-export interface ListDivider extends RichContent{
-
-}
-export interface AccordionElement extends RichContent{
-  title: string,
-  subtitle?: string,
+export interface ListDivider extends RichContent {}
+export interface AccordionElement extends RichContent {
+  title: string;
+  subtitle?: string;
   image?: {
     src: {
-      rawUrl: string
-    }
-  },
-  text: string
+      rawUrl: string;
+    };
+  };
+  text: string;
 }
 
 export interface ChipElement extends RichContent {
@@ -42,7 +49,7 @@ export interface ChipImage {
   src: ChipSrc;
 }
 export interface ChipSrc {
-  rawUrl: string
+  rawUrl: string;
 }
 export interface ButtonElement extends RichContent {
   icon?: ButtonIcon;
@@ -51,42 +58,42 @@ export interface ButtonElement extends RichContent {
   event?: ButtonEvent;
 }
 
-export interface ListElement extends RichContent{
-  title: string,
-  subtitle?: string,
-  event?: ListEvent
+export interface ListElement extends RichContent {
+  title: string;
+  subtitle?: string;
+  event?: ListEvent;
 }
-export interface ListEvent{
-  name: string,
-  languageCode: string,
-  parameters: any
+export interface ListEvent {
+  name: string;
+  languageCode: string;
+  parameters: any;
 }
 export interface ButtonIcon {
   type: string;
-  color: string
+  color: string;
 }
 export interface ButtonEvent {
   name: string;
   languageCode: string;
   parameters: any;
 }
-export interface InfoElement extends RichContent{
+export interface InfoElement extends RichContent {
   title: string;
   subtitle?: string;
   image?: {
     src: {
-      rawUrl: string
-    }
-  },
-  actionLink?: string
+      rawUrl: string;
+    };
+  };
+  actionLink?: string;
 }
-export interface DescriptionElement extends RichContent{
+export interface DescriptionElement extends RichContent {
   title: string;
-  text?: string[];  
+  text?: string[];
 }
 
-export interface ImageElement extends RichContent{  
-  rawUrl: string;  
+export interface ImageElement extends RichContent {
+  rawUrl: string;
   accessibilityText?: string;
 }
 
@@ -146,53 +153,49 @@ export interface DialogFlowResponse {
   queryResult: QueryResult;
   responseType: string;
 }
-export interface ErrorElement{
-  code: string
-  message: string
-  status: string
+export interface ErrorElement {
+  code: string;
+  message: string;
+  status: string;
 }
-export interface QueryParameters{
-
+export interface QueryParameters {}
+export interface QueryInput {}
+export interface DialogFlowRequest {
+  queryParams: QueryParameters;
+  queryInput: QueryInput;
 }
-export interface QueryInput{
-
+export interface ClickAccordionEvent {
+  element: AccordionElement;
 }
-export interface DialogFlowRequest{
-  queryParams:QueryParameters
-  queryInput: QueryInput
+export interface ClickButtonEvent {
+  element: ButtonElement;
 }
-export interface ClickAccordionEvent{
-  element:AccordionElement
+export interface ClickInfoEvent {
+  element: InfoElement;
 }
-export interface ClickButtonEvent{
-  element:ButtonElement
+export interface ClickListEvent {
+  element: ListElement;
 }
-export interface ClickInfoEvent{
-  element:InfoElement
+export interface ErrorEvent {
+  error: ErrorElement;
 }
-export interface ClickListEvent{
-  element: ListElement
-}
-export interface ErrorEvent{
-  error: ErrorElement
-}
-export interface DialogFlowMessengerProps{
-  location: string
-  agent: string
-  language:string
+export interface DialogFlowMessengerProps {
+  location: string;
+  agent: string;
+  language: string;
   //Style
-  dfMessengerBotMessage: ColorValue
-  dfMessengerUserMessage: ColorValue
-  dfMessengerFontColor: ColorValue
+  dfMessengerBotMessage: ColorValue;
+  dfMessengerUserMessage: ColorValue;
+  dfMessengerFontColor: ColorValue;
   //Events
-  dfAccordionClicked: (event:ClickAccordionEvent)=>{}
-  dfButtonClicked(event:ClickButtonEvent):void
-  dfChipClicked: (query:string)=>{}
-  dfInfoCardClicked: (event:ClickInfoEvent)=>{}
-  dfListElementClicked: (event:ClickListEvent)=>{}
-  dfMessengerError: (event: ErrorEvent)=>{}
+  dfAccordionClicked: (event: ClickAccordionEvent) => {};
+  dfButtonClicked(event: ClickButtonEvent): void;
+  dfChipClicked: (query: string) => {};
+  dfInfoCardClicked: (event: ClickInfoEvent) => {};
+  dfListElementClicked: (event: ClickListEvent) => {};
+  dfMessengerError: (event: ErrorEvent) => {};
   //dfMessengerLoaded: ()
-  dfRequestSent: (sent: DialogFlowRequest)=>{}
-  dfResponseReceived: (response:DialogFlowResponse)=>{}
-  dfUserInputEntered: (input:string)=>{}
+  dfRequestSent: (sent: DialogFlowRequest) => {};
+  dfResponseReceived: (response: DialogFlowResponse) => {};
+  dfUserInputEntered: (input: string) => {};
 }

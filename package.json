@@ -10,16 +10,20 @@
     "ui-lib",
     "rn"
   ],
+  "scripts": {
+    "lint": "eslint --fix ./lib/**/*.tsx"
+  },
   "peerDependencies": {
+    "react": ">= 17.x.x",
+    "react-native": ">= 0.64.x"
+  },
+  "dependencies": {
     "@expo/react-native-action-sheet": "^3.6.0",
     "axios": "^0.21.1",
     "dayjs": "^1.8.26",
     "prop-types": "^15.7.2",
-    "react": "17.0.1",
-    "react-native": "0.64.2",
     "react-native-communications": "^2.2.1",
     "react-native-iphone-x-helper": "^1.3.1",
-    "react-native-lightbox": "^0.8.1",
     "react-native-parsed-text": "0.0.22",
     "react-native-typing-animation": "^0.1.7",
     "react-native-vector-icons": "^8.1.0",
@@ -31,13 +35,16 @@
     "@react-native-community/eslint-config": "^3.0.0",
     "@types/react": "^17.0.19",
     "@types/react-native": "^0.64.13",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
     "babel-jest": "^26.6.3",
     "eslint": "7.14.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
     "metro-react-native-babel-preset": "^0.64.0",
     "prettier": "^2.3.2",
-    "react-test-renderer": "17.0.1"
+    "react-test-renderer": "17.0.1",
+    "typescript": "^4.3.5"
   },
   "husky": {
     "hooks": {
@@ -45,9 +52,8 @@
     }
   },
   "lint-staged": {
-    "./lib/*.{js,jsx,ts,tsx}": [
-      "npx prettier --write",
-      "eslint src/*.js --fix-dry-run"
+    "./lib": [
+      "npx prettier --write"
     ]
   }
 }

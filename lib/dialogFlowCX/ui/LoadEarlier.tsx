@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import PropTypes from "prop-types";
+import React from "react";
 import {
   ActivityIndicator,
   Platform,
@@ -10,19 +10,19 @@ import {
   StyleProp,
   ViewStyle,
   TextStyle,
-} from 'react-native'
-import Color from './Color'
-import { StylePropType } from './utils'
+} from "react-native";
+import Color from "./Color";
+import { StylePropType } from "./utils";
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 5,
     marginBottom: 10,
   },
   wrapper: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: Color.defaultColor,
     borderRadius: 15,
     height: 30,
@@ -41,32 +41,32 @@ const styles = StyleSheet.create({
       default: -15,
     }),
   },
-})
+});
 
 export interface LoadEarlierProps {
-  isLoadingEarlier?: boolean
-  label?: string
-  containerStyle?: StyleProp<ViewStyle>
-  wrapperStyle?: StyleProp<ViewStyle>
-  textStyle?: StyleProp<TextStyle>
-  activityIndicatorStyle?: StyleProp<ViewStyle>
-  activityIndicatorColor?: string
-  activityIndicatorSize?: number | 'small' | 'large'
-  onLoadEarlier?(): void
+  isLoadingEarlier?: boolean;
+  label?: string;
+  containerStyle?: StyleProp<ViewStyle>;
+  wrapperStyle?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
+  activityIndicatorStyle?: StyleProp<ViewStyle>;
+  activityIndicatorColor?: string;
+  activityIndicatorSize?: number | "small" | "large";
+  onLoadEarlier?(): void;
 }
 
 export default class LoadEarlier extends React.Component<LoadEarlierProps> {
   static defaultProps = {
     onLoadEarlier: () => {},
     isLoadingEarlier: false,
-    label: 'Load earlier messages',
+    label: "Load earlier messages",
     containerStyle: {},
     wrapperStyle: {},
     textStyle: {},
     activityIndicatorStyle: {},
-    activityIndicatorColor: 'white',
-    activityIndicatorSize: 'small',
-  }
+    activityIndicatorColor: "white",
+    activityIndicatorSize: "small",
+  };
 
   static propTypes = {
     onLoadEarlier: PropTypes.func,
@@ -78,7 +78,7 @@ export default class LoadEarlier extends React.Component<LoadEarlierProps> {
     activityIndicatorStyle: StylePropType,
     activityIndicatorColor: PropTypes.string,
     activityIndicatorSize: PropTypes.string,
-  }
+  };
 
   renderLoading() {
     if (this.props.isLoadingEarlier === false) {
@@ -86,7 +86,7 @@ export default class LoadEarlier extends React.Component<LoadEarlierProps> {
         <Text style={[styles.text, this.props.textStyle]}>
           {this.props.label}
         </Text>
-      )
+      );
     }
     return (
       <View>
@@ -99,7 +99,7 @@ export default class LoadEarlier extends React.Component<LoadEarlierProps> {
           style={[styles.activityIndicator, this.props.activityIndicatorStyle]}
         />
       </View>
-    )
+    );
   }
   render() {
     return (
@@ -107,16 +107,16 @@ export default class LoadEarlier extends React.Component<LoadEarlierProps> {
         style={[styles.container, this.props.containerStyle]}
         onPress={() => {
           if (this.props.onLoadEarlier) {
-            this.props.onLoadEarlier()
+            this.props.onLoadEarlier();
           }
         }}
         disabled={this.props.isLoadingEarlier === true}
-        accessibilityTraits='button'
+        accessibilityTraits="button"
       >
         <View style={[styles.wrapper, this.props.wrapperStyle]}>
           {this.renderLoading()}
         </View>
       </TouchableOpacity>
-    )
+    );
   }
 }

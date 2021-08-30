@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types'
-import React, { ReactNode } from 'react'
+import PropTypes from "prop-types";
+import React, { ReactNode } from "react";
 import {
   StyleSheet,
   View,
   ImageStyle,
   TextStyle,
   ViewStyle,
-} from 'react-native'
-import GiftedAvatar from './GiftedAvatar'
-import { StylePropType, isSameUser, isSameDay } from './utils'
-import { Omit, IMessage, User, LeftRightStyle } from './Models'
+} from "react-native";
+import GiftedAvatar from "./GiftedAvatar";
+import { StylePropType, isSameUser, isSameDay } from "./utils";
+import { Omit, IMessage, User, LeftRightStyle } from "./Models";
 
 const styles = {
   left: StyleSheet.create({
@@ -17,7 +17,7 @@ const styles = {
       marginRight: 8,
     },
     onTop: {
-      alignSelf: 'flex-start',
+      alignSelf: "flex-start",
     },
     onBottom: {},
     image: {
@@ -31,7 +31,7 @@ const styles = {
       marginLeft: 8,
     },
     onTop: {
-      alignSelf: 'flex-start',
+      alignSelf: "flex-start",
     },
     onBottom: {},
     image: {
@@ -40,30 +40,30 @@ const styles = {
       borderRadius: 18,
     },
   }),
-}
+};
 
 export interface AvatarProps<TMessage extends IMessage> {
-  currentMessage?: TMessage
-  previousMessage?: TMessage
-  nextMessage?: TMessage
-  position: 'left' | 'right'
-  renderAvatarOnTop?: boolean
-  showAvatarForEveryMessage?: boolean
-  imageStyle?: LeftRightStyle<ImageStyle>
-  containerStyle?: LeftRightStyle<ViewStyle>
-  textStyle?: TextStyle
-  renderAvatar?(props: Omit<AvatarProps<TMessage>, 'renderAvatar'>): ReactNode
-  onPressAvatar?(user: User): void
-  onLongPressAvatar?(user: User): void
+  currentMessage?: TMessage;
+  previousMessage?: TMessage;
+  nextMessage?: TMessage;
+  position: "left" | "right";
+  renderAvatarOnTop?: boolean;
+  showAvatarForEveryMessage?: boolean;
+  imageStyle?: LeftRightStyle<ImageStyle>;
+  containerStyle?: LeftRightStyle<ViewStyle>;
+  textStyle?: TextStyle;
+  renderAvatar?(props: Omit<AvatarProps<TMessage>, "renderAvatar">): ReactNode;
+  onPressAvatar?(user: User): void;
+  onLongPressAvatar?(user: User): void;
 }
 
 export default class Avatar<
-  TMessage extends IMessage = IMessage
+  TMessage extends IMessage = IMessage,
 > extends React.Component<AvatarProps<TMessage>> {
   static defaultProps = {
     renderAvatarOnTop: false,
     showAvatarForEveryMessage: false,
-    position: 'left',
+    position: "left",
     currentMessage: {
       user: null,
     },
@@ -73,12 +73,12 @@ export default class Avatar<
     imageStyle: {},
     onPressAvatar: () => {},
     onLongPressAvatar: () => {},
-  }
+  };
 
   static propTypes = {
     renderAvatarOnTop: PropTypes.bool,
     showAvatarForEveryMessage: PropTypes.bool,
-    position: PropTypes.oneOf(['left', 'right']),
+    position: PropTypes.oneOf(["left", "right"]),
     currentMessage: PropTypes.object,
     previousMessage: PropTypes.object,
     nextMessage: PropTypes.object,
@@ -93,12 +93,12 @@ export default class Avatar<
       left: StylePropType,
       right: StylePropType,
     }),
-  }
+  };
 
   renderAvatar() {
     if (this.props.renderAvatar) {
-      const { renderAvatar, ...avatarProps } = this.props
-      return this.props.renderAvatar(avatarProps)
+      const { renderAvatar, ...avatarProps } = this.props;
+      return this.props.renderAvatar(avatarProps);
     }
     if (this.props.currentMessage) {
       return (
@@ -121,9 +121,9 @@ export default class Avatar<
             this.props.onLongPressAvatar(this.props.currentMessage!.user)
           }
         />
-      )
+      );
     }
-    return null
+    return null;
   }
 
   render() {
@@ -137,12 +137,12 @@ export default class Avatar<
       previousMessage,
       nextMessage,
       imageStyle,
-    } = this.props
-    const messageToCompare = renderAvatarOnTop ? previousMessage : nextMessage
-    const computedStyle = renderAvatarOnTop ? 'onTop' : 'onBottom'
+    } = this.props;
+    const messageToCompare = renderAvatarOnTop ? previousMessage : nextMessage;
+    const computedStyle = renderAvatarOnTop ? "onTop" : "onBottom";
 
     if (renderAvatar === null) {
-      return null
+      return null;
     }
 
     if (
@@ -168,7 +168,7 @@ export default class Avatar<
             }
           />
         </View>
-      )
+      );
     }
 
     return (
@@ -181,6 +181,6 @@ export default class Avatar<
       >
         {this.renderAvatar()}
       </View>
-    )
+    );
   }
 }

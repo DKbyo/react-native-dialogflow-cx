@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import {
   Image,
   StyleSheet,
@@ -8,12 +8,12 @@ import {
   ViewStyle,
   StyleProp,
   ImageStyle,
-} from 'react-native'
+} from "react-native";
 // TODO: support web
 // @ts-ignore
-import Lightbox from './lightbox/Lightbox'
-import { IMessage } from './Models'
-import { StylePropType } from './utils'
+import Lightbox from "./lightbox/Lightbox";
+import { IMessage } from "./Models";
+import { StylePropType } from "./utils";
 
 const styles = StyleSheet.create({
   container: {},
@@ -22,28 +22,28 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 13,
     margin: 3,
-    resizeMode: 'cover',
+    resizeMode: "cover",
   },
   imageActive: {
     flex: 1,
-    resizeMode: 'contain',
+    resizeMode: "contain",
   },
   imageActiveClose: {
     flex: 1,
-    resizeMode: 'cover',
+    resizeMode: "cover",
   },
-})
+});
 
 export interface MessageImageProps<TMessage extends IMessage> {
-  currentMessage?: TMessage
-  containerStyle?: StyleProp<ViewStyle>
-  imageStyle?: StyleProp<ImageStyle>
-  imageProps?: Partial<ImageProps>
-  lightboxProps?: object
+  currentMessage?: TMessage;
+  containerStyle?: StyleProp<ViewStyle>;
+  imageStyle?: StyleProp<ImageStyle>;
+  imageProps?: Partial<ImageProps>;
+  lightboxProps?: object;
 }
 
 export default class MessageImage<
-  TMessage extends IMessage = IMessage
+  TMessage extends IMessage = IMessage,
 > extends Component<MessageImageProps<TMessage>> {
   static defaultProps = {
     currentMessage: {
@@ -53,7 +53,7 @@ export default class MessageImage<
     imageStyle: {},
     imageProps: {},
     lightboxProps: {},
-  }
+  };
 
   static propTypes = {
     currentMessage: PropTypes.object,
@@ -61,7 +61,7 @@ export default class MessageImage<
     imageStyle: StylePropType,
     imageProps: PropTypes.object,
     lightboxProps: PropTypes.object,
-  }
+  };
 
   render() {
     const {
@@ -70,14 +70,14 @@ export default class MessageImage<
       imageProps,
       imageStyle,
       currentMessage,
-    } = this.props
-    if (!!currentMessage) {      
+    } = this.props;
+    if (currentMessage) {
       return (
         <View style={[styles.container, containerStyle]}>
-          <Lightbox          
+          <Lightbox
             swipeToDismiss={true}
             activeProps={{
-              style: styles.imageActive,              
+              style: styles.imageActive,
             }}
             {...lightboxProps}
           >
@@ -88,8 +88,8 @@ export default class MessageImage<
             />
           </Lightbox>
         </View>
-      )
+      );
     }
-    return null
+    return null;
   }
 }

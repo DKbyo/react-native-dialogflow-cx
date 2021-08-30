@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { Animated, StyleSheet } from 'react-native'
-import { TypingAnimation } from 'react-native-typing-animation'
-import { useUpdateLayoutEffect } from './hooks/useUpdateLayoutEffect'
-import Color from './Color'
+import * as React from "react";
+import { Animated, StyleSheet } from "react-native";
+import { TypingAnimation } from "react-native-typing-animation";
+import { useUpdateLayoutEffect } from "./hooks/useUpdateLayoutEffect";
+import Color from "./Color";
 
 interface Props {
-  isTyping?: boolean
+  isTyping?: boolean;
 }
 
 const TypingIndicator = ({ isTyping }: Props) => {
@@ -16,16 +16,16 @@ const TypingIndicator = ({ isTyping }: Props) => {
       marginScale: new Animated.Value(0),
     }),
     [],
-  )
+  );
 
   // on isTyping fire side effect
   useUpdateLayoutEffect(() => {
     if (isTyping) {
-      slideIn()
+      slideIn();
     } else {
-      slideOut()
+      slideOut();
     }
-  }, [isTyping])
+  }, [isTyping]);
 
   // side effect
   const slideIn = () => {
@@ -44,8 +44,8 @@ const TypingIndicator = ({ isTyping }: Props) => {
         duration: 250,
         useNativeDriver: false,
       }),
-    ]).start()
-  }
+    ]).start();
+  };
 
   // side effect
   const slideOut = () => {
@@ -64,8 +64,8 @@ const TypingIndicator = ({ isTyping }: Props) => {
         duration: 250,
         useNativeDriver: false,
       }),
-    ]).start()
-  }
+    ]).start();
+  };
   return (
     <Animated.View
       style={[
@@ -86,12 +86,12 @@ const TypingIndicator = ({ isTyping }: Props) => {
           style={{ marginLeft: 6, marginTop: 7.2 }}
           dotRadius={4}
           dotMargin={5.5}
-          dotColor={'rgba(0, 0, 0, 0.38)'}
+          dotColor={"rgba(0, 0, 0, 0.38)"}
         />
       ) : null}
     </Animated.View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -100,6 +100,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: Color.leftBubbleBackground,
   },
-})
+});
 
-export default TypingIndicator
+export default TypingIndicator;

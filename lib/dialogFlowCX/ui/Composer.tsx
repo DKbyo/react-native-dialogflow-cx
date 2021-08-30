@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import { Platform, StyleSheet, TextInput, TextInputProps } from 'react-native'
-import { MIN_COMPOSER_HEIGHT, DEFAULT_PLACEHOLDER } from './Constant'
-import Color from './Color'
-import { StylePropType } from './utils'
+import PropTypes from "prop-types";
+import React from "react";
+import { Platform, StyleSheet, TextInput, TextInputProps } from "react-native";
+import { MIN_COMPOSER_HEIGHT, DEFAULT_PLACEHOLDER } from "./Constant";
+import Color from "./Color";
+import { StylePropType } from "./utils";
 
 const styles = StyleSheet.create({
   textInput: {
@@ -28,27 +28,27 @@ const styles = StyleSheet.create({
       web: 4,
     }),
   },
-})
+});
 
 export interface ComposerProps {
-  composerHeight?: number
-  text?: string
-  placeholder?: string
-  placeholderTextColor?: string
-  textInputProps?: Partial<TextInputProps>
-  textInputStyle?: TextInputProps['style']
-  textInputAutoFocus?: boolean
-  keyboardAppearance?: TextInputProps['keyboardAppearance']
-  multiline?: boolean
-  disableComposer?: boolean
-  onTextChanged?(text: string): void
-  onInputSizeChanged?(layout: { width: number; height: number }): void
+  composerHeight?: number;
+  text?: string;
+  placeholder?: string;
+  placeholderTextColor?: string;
+  textInputProps?: Partial<TextInputProps>;
+  textInputStyle?: TextInputProps["style"];
+  textInputAutoFocus?: boolean;
+  keyboardAppearance?: TextInputProps["keyboardAppearance"];
+  multiline?: boolean;
+  disableComposer?: boolean;
+  onTextChanged?(text: string): void;
+  onInputSizeChanged?(layout: { width: number; height: number }): void;
 }
 
 export default class Composer extends React.Component<ComposerProps> {
   static defaultProps = {
     composerHeight: MIN_COMPOSER_HEIGHT,
-    text: '',
+    text: "",
     placeholderTextColor: Color.defaultColor,
     placeholder: DEFAULT_PLACEHOLDER,
     textInputProps: null,
@@ -56,10 +56,10 @@ export default class Composer extends React.Component<ComposerProps> {
     disableComposer: false,
     textInputStyle: {},
     textInputAutoFocus: false,
-    keyboardAppearance: 'default',
+    keyboardAppearance: "default",
     onTextChanged: () => {},
     onInputSizeChanged: () => {},
-  }
+  };
 
   static propTypes = {
     composerHeight: PropTypes.number,
@@ -74,16 +74,16 @@ export default class Composer extends React.Component<ComposerProps> {
     textInputStyle: StylePropType,
     textInputAutoFocus: PropTypes.bool,
     keyboardAppearance: PropTypes.string,
-  }
+  };
 
-  layout?: { width: number; height: number } = undefined
+  layout?: { width: number; height: number } = undefined;
 
   onLayout = (e: any) => {
-    const { layout } = e.nativeEvent
+    const { layout } = e.nativeEvent;
 
     // Support earlier versions of React Native on Android.
     if (!layout) {
-      return
+      return;
     }
 
     if (
@@ -92,14 +92,14 @@ export default class Composer extends React.Component<ComposerProps> {
         (this.layout.width !== layout.width ||
           this.layout.height !== layout.height))
     ) {
-      this.layout = layout
-      this.props.onInputSizeChanged!(this.layout!)
+      this.layout = layout;
+      this.props.onInputSizeChanged!(this.layout!);
     }
-  }
+  };
 
   onChangeText = (text: string) => {
-    this.props.onTextChanged!(text)
-  }
+    this.props.onTextChanged!(text);
+  };
 
   render() {
     return (
@@ -121,7 +121,7 @@ export default class Composer extends React.Component<ComposerProps> {
             ...Platform.select({
               web: {
                 outlineWidth: 0,
-                outlineColor: 'transparent',
+                outlineColor: "transparent",
                 outlineOffset: 0,
               },
             }),
@@ -130,10 +130,10 @@ export default class Composer extends React.Component<ComposerProps> {
         autoFocus={this.props.textInputAutoFocus}
         value={this.props.text}
         enablesReturnKeyAutomatically
-        underlineColorAndroid='transparent'
+        underlineColorAndroid="transparent"
         keyboardAppearance={this.props.keyboardAppearance}
         {...this.props.textInputProps}
       />
-    )
+    );
   }
 }

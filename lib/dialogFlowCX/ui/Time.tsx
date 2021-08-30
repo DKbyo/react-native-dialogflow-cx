@@ -1,24 +1,24 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import { StyleSheet, Text, View, ViewStyle, TextStyle } from 'react-native'
-import dayjs from 'dayjs'
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { StyleSheet, Text, View, ViewStyle, TextStyle } from "react-native";
+import dayjs from "dayjs";
 
-import Color from './Color'
-import { TIME_FORMAT } from './Constant'
-import { LeftRightStyle, IMessage } from './Models'
-import { StylePropType } from './utils'
+import Color from "./Color";
+import { TIME_FORMAT } from "./Constant";
+import { LeftRightStyle, IMessage } from "./Models";
+import { StylePropType } from "./utils";
 
 const containerStyle = {
   marginLeft: 10,
   marginRight: 10,
   marginBottom: 5,
-}
+};
 
 const textStyle = {
   fontSize: 10,
-  backgroundColor: 'transparent',
-  textAlign: 'right',
-}
+  backgroundColor: "transparent",
+  textAlign: "right",
+};
 
 const styles = {
   left: StyleSheet.create({
@@ -39,35 +39,35 @@ const styles = {
       ...textStyle,
     },
   }),
-}
+};
 
 export interface TimeProps<TMessage extends IMessage> {
-  position: 'left' | 'right'
-  currentMessage?: TMessage
-  containerStyle?: LeftRightStyle<ViewStyle>
-  timeTextStyle?: LeftRightStyle<TextStyle>
-  timeFormat?: string
+  position: "left" | "right";
+  currentMessage?: TMessage;
+  containerStyle?: LeftRightStyle<ViewStyle>;
+  timeTextStyle?: LeftRightStyle<TextStyle>;
+  timeFormat?: string;
 }
 
 export default class Time<
-  TMessage extends IMessage = IMessage
+  TMessage extends IMessage = IMessage,
 > extends Component<TimeProps<TMessage>> {
   static contextTypes = {
     getLocale: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
-    position: 'left',
+    position: "left",
     currentMessage: {
       createdAt: null,
     },
     containerStyle: {},
     timeFormat: TIME_FORMAT,
     timeTextStyle: {},
-  }
+  };
 
   static propTypes = {
-    position: PropTypes.oneOf(['left', 'right']),
+    position: PropTypes.oneOf(["left", "right"]),
     currentMessage: PropTypes.object,
     containerStyle: PropTypes.shape({
       left: StylePropType,
@@ -78,7 +78,7 @@ export default class Time<
       left: StylePropType,
       right: StylePropType,
     }),
-  }
+  };
 
   render() {
     const {
@@ -87,9 +87,9 @@ export default class Time<
       currentMessage,
       timeFormat,
       timeTextStyle,
-    } = this.props
+    } = this.props;
 
-    if (!!currentMessage) {
+    if (currentMessage) {
       return (
         <View
           style={[
@@ -110,8 +110,8 @@ export default class Time<
               .format(timeFormat)}
           </Text>
         </View>
-      )
+      );
     }
-    return null
+    return null;
   }
 }
