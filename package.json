@@ -1,5 +1,9 @@
 {
   "name": "react-native-dialogflow-messenger",
+  "bugs": "https://github.com/DKbyo/react-native-dialogflow-cx/issues",  
+  "repository": "git@github.com:DKbyo/react-native-dialogflow-cx.git",
+  "author": "Danyel Cabello <danyel.nerv@gmail.com>",
+  "license": "MIT",
   "version": "0.0.1",
   "keywords": [
     "dialogflow",
@@ -10,6 +14,7 @@
     "ui-lib",
     "rn"
   ],
+  "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint --fix ./lib/**/*.tsx"
   },
