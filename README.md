@@ -49,7 +49,7 @@ import { DialogFlowMessenger } from "react-native-dialogflow-messenger";
 
 ```js
 <DialogFlowMessenger
-  location="<agent_id>"
+  location="<location>"
   agent="<agent_id>"      
   //Style
   dfMessengerBotMessage="#878fac"
