@@ -10,11 +10,11 @@
 
 # Introduction
 
-This library implements the [Dialogflow Messenger custom payload protocol](https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger), you just need [enable the DialogFlow Messenger integration](https://cloud.google.com/dialogflow/cx/docs/concept/integration) and use this library with you *Agent ID* and *Location*
+This library implements the [Dialogflow Messenger custom payload protocol](https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger), you just need [enable the DialogFlow Messenger integration](https://cloud.google.com/dialogflow/cx/docs/concept/integration) and use this library with you **Agent ID** and **Location**
 
 # Demo
 
-![Demo](https://rawcdn.githack.com/DKbyo/react-native-dialogflow-cx/989fb9b127fa475baa950a5050b82b19b3a9e267/assets/demo.gif | width=150)
+<img src="https://cdn.statically.io/gh/DKByo/react-native-dialogflow-cx/0.0.2/assets/demo.gif" width="150"/>
 
 # Installation
 
@@ -45,7 +45,7 @@ react-native link react-native-vector-icons
 import { DialogFlowMessenger } from "react-native-dialogflow-messenger";
 ```
 
-## Component1 Usage
+## Component Usage
 
 ```js
 <DialogFlowMessenger
@@ -87,6 +87,46 @@ import { DialogFlowMessenger } from "react-native-dialogflow-messenger";
 | dfRequestSent         | func    |         | make the button with a gradient background and a shadow |
 | dfResponseReceived    | func    |         | make the button with a gradient background and a shadow |
 | dfUserInputEntered    | func    |         | make the button with a gradient background and a shadow | 
+
+## Dialogflow Messenger Protocol
+
+# Properties
+
+- [X] df-messenger-bot-message	Bubble background color for agent messages.
+- [ ] df-messenger-button-titlebar-color	Color for the floating button and the titlebar of the chat dialog.
+- [ ] df-messenger-button-titlebar-font-color	Font color for the title in the titlebar.
+- [ ] df-messenger-chat-background-color	Color for the chat dialog background.
+- [X] df-messenger-font-color	Font color for messages.
+- [ ] df-messenger-input-box-color	Background color for the text input box.
+- [ ] df-messenger-input-font-color	Font color for the text input box.
+- [ ] df-messenger-input-placeholder-font-color	Font color for placeholder text in text input box.
+- [ ] df-messenger-minimized-chat-close-icon-color	Color of the close icon in the closed chat view.
+- [ ] df-messenger-send-icon	Color of the send icon in the text input box.
+- [X] df-messenger-user-message	Bubble background color for user messages.
+
+# Features
+
+- [X] Info
+- [X] Chips
+- [X] Description
+- [X] Image
+- [X] Button
+- [X] Lists
+- [X] Accordion
+- [X] Combining response types
+
+# Events
+ 
+- [X] df-accordion-clicked
+- [X] df-button-clicked
+- [X] df-chip-clicked
+- [X] df-info-card-clicked
+- [X] df-list-element-clicked
+- [X] df-messenger-error
+- [ ] df-messenger-loaded
+- [X] df-request-sent
+- [X] df-response-received
+- [X] df-user-input-entered
 
 
 ## Future Plans
