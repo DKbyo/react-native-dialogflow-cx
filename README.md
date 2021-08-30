@@ -12,6 +12,10 @@
 
 This library implements the [Dialogflow Messenger custom payload protocol](https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger), you just need [enable the DialogFlow Messenger integration](https://cloud.google.com/dialogflow/cx/docs/concept/integration) and use this library with you *Agent ID* and *Location*
 
+# Demo
+
+![Demo](https://rawcdn.githack.com/DKbyo/react-native-dialogflow-cx/989fb9b127fa475baa950a5050b82b19b3a9e267/assets/demo.gif | width=150)
+
 # Installation
 
 Add the dependency:
