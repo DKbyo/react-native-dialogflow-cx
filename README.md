@@ -2,8 +2,8 @@
 [![React Native Dailogflow CX Messenger](https://img.shields.io/badge/-React%20Native%20Dialogflow%20CX%20Messenger-blue)](https://github.com/DKbyo/react-native-dialogflow-cx)
 
 
-[![npm version](https://img.shields.io/npm/v/react-native-dialogflow-cx.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-dialogflow-cx)
-[![npm](https://img.shields.io/npm/dt/react-native-dialogflow-cx.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-dialogflow-cx)
+[![npm version](https://img.shields.io/npm/v/react-native-dialogflow-messenger.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-dialogflow-messenger)
+[![npm](https://img.shields.io/npm/dt/react-native-dialogflow-messenger.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-dialogflow-messenger)
 ![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg?style=for-the-badge)
 [![License: APACHE2](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
@@ -21,7 +21,7 @@ This library implements the [Dialogflow Messenger custom payload protocol](https
 Add the dependency:
 
 ```shell
-yarn add react-native-dialogflow-cx
+yarn add react-native-dialogflow-messenger
 yarn add react-native-vector-icons
 react-native link react-native-vector-icons
 ```
@@ -134,6 +134,7 @@ import { DialogFlowMessenger } from "react-native-dialogflow-messenger";
 - [ ] Add more style settings
 - [ ] Expose messages array
 - [ ] Add "Typying" animation
+- [ ] Add support for Dialogflow ES
 
 # Change Log
 
